@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#05070d">
-<title>neee.my — 专业能量交易平台</title>
+<title>Neee.my — 专业能量交易平台</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html{background:#02040a;}
@@ -70,81 +70,23 @@
     display:flex;align-items:center;justify-content:space-between;
     padding:16px 18px 6px;
   }
-  .logo{display:flex;align-items:center;gap:9px;}
+  .logo{display:flex;align-items:center;gap:10px;}
   .logo-mark{
-    width:29px;height:29px;border-radius:9px;
-    background:linear-gradient(135deg,#00e6a8,#0084ff);
-    display:grid;place-items:center;
-    font-size:15px;font-weight:800;color:#04121a;
-    box-shadow:0 4px 14px rgba(0,200,180,.32);
+    width:34px;height:34px;flex:0 0 auto;
+    filter:drop-shadow(0 4px 14px rgba(0,200,180,.35));
   }
-  .logo-text{font-size:17.5px;font-weight:700;letter-spacing:.2px;}
+  .logo-mark svg{width:100%;height:100%;}
+  .logo-text{
+    font-size:18.5px;font-weight:800;letter-spacing:.2px;
+    background:linear-gradient(120deg,#ffffff 8%,#9adcff 52%,#00e6a8 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
   .header-badge{
     font-size:11px;color:#8ea2c0;
     padding:5px 10px;border-radius:999px;
     background:rgba(255,255,255,.05);
     border:1px solid rgba(255,255,255,.08);
   }
-
-  /* ---------- Hero ---------- */
-  .hero{padding:26px 22px 4px;text-align:center;}
-  .pill{
-    display:inline-flex;align-items:center;gap:6px;
-    padding:5px 13px;border-radius:999px;
-    font-size:11.5px;color:#00e6a8;letter-spacing:.4px;
-    background:rgba(0,230,168,.08);
-    border:1px solid rgba(0,230,168,.25);
-  }
-  .pill::before{
-    content:"";width:5px;height:5px;border-radius:50%;
-    background:#00e6a8;box-shadow:0 0 8px #00e6a8;
-  }
-  .hero h1{
-    margin-top:16px;
-    font-size:31px;font-weight:800;letter-spacing:-.5px;line-height:1.25;
-    background:linear-gradient(115deg,#ffffff 8%,#9adcff 48%,#00e6a8 96%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .hero-desc{
-    margin-top:14px;font-size:13.5px;line-height:1.85;color:#8593ad;
-  }
-
-  /* ---------- 三大特色 ---------- */
-  .features{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    gap:9px;padding:28px 16px 0;
-  }
-  .feat{
-    background:linear-gradient(180deg,rgba(255,255,255,.058),rgba(255,255,255,.018));
-    border:1px solid rgba(255,255,255,.07);
-    border-radius:16px;padding:15px 8px 14px;text-align:center;
-  }
-  .feat-icon{
-    width:36px;height:36px;margin:0 auto 10px;border-radius:11px;
-    display:grid;place-items:center;color:#00e6a8;
-    background:rgba(0,230,168,.1);
-    border:1px solid rgba(0,230,168,.22);
-  }
-  .feat-icon svg{width:17px;height:17px;}
-  .feat h3{font-size:12.5px;font-weight:600;margin-bottom:7px;color:#eaf1fd;}
-  .feat p{font-size:10.5px;line-height:1.65;color:#7b8aa4;}
-
-  /* ---------- 数据 ---------- */
-  .stats{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    padding:30px 16px 4px;text-align:center;
-  }
-  .stat{position:relative;}
-  .stat + .stat::before{
-    content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
-    width:1px;height:26px;background:rgba(255,255,255,.08);
-  }
-  .stat-num{
-    font-size:24px;font-weight:800;letter-spacing:-.6px;line-height:1;
-    background:linear-gradient(120deg,#00e6a8,#4fc3ff);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .stat-label{margin-top:9px;font-size:11.5px;color:#6d7c96;}
 
   /* ---------- 通用标题 ---------- */
   .sec{padding:34px 16px 0;}
@@ -255,14 +197,118 @@
     width:4px;height:4px;border-radius:50%;background:#3d4b62;
   }
   .claim-notice b{color:#00e6a8;font-weight:600;}
-  .claim-notice .em{
-    color:#4fc3ff;font-weight:600;
+  .claim-notice .em{color:#4fc3ff;font-weight:600;}
+
+  /* ---------- 速充 / 批量 操作卡片 ---------- */
+  .action-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    margin-top:14px;
   }
+  .action-card{
+    position:relative;overflow:hidden;
+    padding:16px 14px 15px;border-radius:16px;
+    background:linear-gradient(170deg,#101c30,#0a101a);
+    border:1px solid rgba(255,255,255,.07);
+    cursor:pointer;
+    transition:border-color .2s,transform .12s;
+  }
+  .action-card:active{transform:scale(.98);}
+  .action-card:hover{border-color:rgba(0,230,168,.32);}
+  .action-card::after{
+    content:"";position:absolute;top:-40px;right:-40px;
+    width:110px;height:110px;border-radius:50%;
+    background:radial-gradient(circle,rgba(0,230,168,.14),transparent 68%);
+    pointer-events:none;
+  }
+  .action-icon{
+    position:relative;z-index:1;
+    width:36px;height:36px;border-radius:11px;
+    display:grid;place-items:center;margin-bottom:11px;
+    color:#00e6a8;
+    background:rgba(0,230,168,.1);
+    border:1px solid rgba(0,230,168,.22);
+  }
+  .action-icon svg{width:17px;height:17px;}
+  .action-title{
+    position:relative;z-index:1;
+    font-size:14.5px;font-weight:700;color:#eaf1fd;
+    letter-spacing:.2px;margin-bottom:5px;
+  }
+  .action-desc{
+    position:relative;z-index:1;
+    font-size:11px;line-height:1.6;color:#7b8aa4;
+  }
+  .action-arrow{
+    position:absolute;top:16px;right:13px;z-index:1;
+    color:#3f4d64;transition:color .2s,transform .2s;
+  }
+  .action-card:hover .action-arrow{color:#00e6a8;transform:translateX(2px);}
+  .action-arrow svg{width:14px;height:14px;}
+
+  /* ---------- 三大特色 ---------- */
+  .features{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:9px;padding:28px 16px 0;
+  }
+  .feat{
+    background:linear-gradient(180deg,rgba(255,255,255,.058),rgba(255,255,255,.018));
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:16px;padding:15px 8px 14px;text-align:center;
+  }
+  .feat-icon{
+    width:36px;height:36px;margin:0 auto 10px;border-radius:11px;
+    display:grid;place-items:center;color:#00e6a8;
+    background:rgba(0,230,168,.1);
+    border:1px solid rgba(0,230,168,.22);
+  }
+  .feat-icon svg{width:17px;height:17px;}
+  .feat h3{font-size:12.5px;font-weight:600;margin-bottom:7px;color:#eaf1fd;}
+  .feat p{font-size:10.5px;line-height:1.65;color:#7b8aa4;}
+
+  /* ---------- 数据 ---------- */
+  .stats{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    padding:30px 16px 4px;text-align:center;
+  }
+  .stat{position:relative;}
+  .stat + .stat::before{
+    content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+    width:1px;height:26px;background:rgba(255,255,255,.08);
+  }
+  .stat-num{
+    font-size:24px;font-weight:800;letter-spacing:-.6px;line-height:1;
+    background:linear-gradient(120deg,#00e6a8,#4fc3ff);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .stat-label{margin-top:9px;font-size:11.5px;color:#6d7c96;}
 
   /* ---------- 关于我们 ---------- */
   .about-text{
     font-size:13px;line-height:2;color:#8c9ab3;
     text-align:justify;letter-spacing:.1px;
+  }
+
+  /* ---------- Hero（安全·便捷·高效） ---------- */
+  .hero{padding:30px 22px 4px;text-align:center;}
+  .pill{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:5px 13px;border-radius:999px;
+    font-size:11.5px;color:#00e6a8;letter-spacing:.4px;
+    background:rgba(0,230,168,.08);
+    border:1px solid rgba(0,230,168,.25);
+  }
+  .pill::before{
+    content:"";width:5px;height:5px;border-radius:50%;
+    background:#00e6a8;box-shadow:0 0 8px #00e6a8;
+  }
+  .hero h1{
+    margin-top:16px;
+    font-size:31px;font-weight:800;letter-spacing:-.5px;line-height:1.25;
+    background:linear-gradient(115deg,#ffffff 8%,#9adcff 48%,#00e6a8 96%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-desc{
+    margin-top:14px;font-size:13.5px;line-height:1.85;color:#8593ad;
   }
 
   /* ---------- 功能网格 ---------- */
@@ -307,8 +353,13 @@
     margin-top:38px;padding:20px 16px 8px;text-align:center;
     border-top:1px solid rgba(255,255,255,.05);
   }
+  .footer-brand{
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .footer-brand .mark{width:24px;height:24px;}
+  .footer-brand .mark svg{width:100%;height:100%;}
   .footer-logo{
-    font-size:13px;font-weight:700;letter-spacing:.5px;
+    font-size:14.5px;font-weight:800;letter-spacing:.3px;
     background:linear-gradient(120deg,#00e6a8,#4fc3ff);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
@@ -325,20 +376,45 @@
     <div class="notice">
       <span class="notice-tag">公告</span>
       <div class="marquee">
-        <span>1.neee.my平台已升级，旧平台tronqq.com账户不通用，旧版平台有余额请联系客服转移</span>
+        <span>1.Neee.my平台已升级，旧平台tronqq.com账户不通用，旧版平台有余额请联系客服转移</span>
       </div>
     </div>
 
     <!-- 顶部 -->
     <header class="header">
       <div class="logo">
-        <div class="logo-mark">N</div>
-        <div class="logo-text">neee.my</div>
+        <div class="logo-mark">
+          <!-- ===== Neee.my 品牌图标（顶部） ===== -->
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <defs>
+              <linearGradient id="nmb" x1="0" y1="0" x2="40" y2="40">
+                <stop offset="0%" stop-color="#102540"/>
+                <stop offset="55%" stop-color="#0a1728"/>
+                <stop offset="100%" stop-color="#060d16"/>
+              </linearGradient>
+              <linearGradient id="nmn" x1="12" y1="30" x2="28" y2="10">
+                <stop offset="0%" stop-color="#00e6a8"/>
+                <stop offset="100%" stop-color="#5ecbff"/>
+              </linearGradient>
+              <radialGradient id="nmglow" cx="50%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="rgba(0,230,168,.28)"/>
+                <stop offset="100%" stop-color="rgba(0,230,168,0)"/>
+              </radialGradient>
+            </defs>
+            <rect x="0.5" y="0.5" width="39" height="39" rx="12" fill="url(#nmb)"/>
+            <rect x="0.5" y="0.5" width="39" height="39" rx="12" fill="url(#nmglow)"/>
+            <rect x="0.5" y="0.5" width="39" height="39" rx="12" stroke="rgba(0,230,168,.3)" stroke-width="0.9"/>
+            <path d="M12.5 29V11L27.5 29V11"
+                  stroke="url(#nmn)" stroke-width="3.6"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="logo-text">Neee.my</div>
       </div>
       <div class="header-badge">TRON 能量</div>
     </header>
 
-    <!-- 免费领取能量（最上方） -->
+    <!-- 免费领取能量 + 速充/批量操作 -->
     <section class="sec">
       <div class="sec-title">免费领取能量 <span class="en">FREE</span></div>
 
@@ -365,6 +441,38 @@
           <p>6.5万 = 1笔 ｜ 13.1万 = 2笔 ｜ 65万 = 10笔</p>
           <p>每天可领取 <b>1 笔</b> 免费能量，第二次需要自己购买，售价 <b>1.5 TRX</b> 可购买一笔</p>
           <p>推广合作请联系 <span class="em">客服电报</span></p>
+        </div>
+      </div>
+
+      <!-- 速充能量 / 批量租赁 -->
+      <div class="action-grid">
+        <div class="action-card">
+          <div class="action-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+          </div>
+          <div class="action-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2 4.5 13.5H11l-1 8.5 9-11.5h-6.5z"/>
+            </svg>
+          </div>
+          <div class="action-title">速充能量</div>
+          <div class="action-desc">极速到账，随用随充</div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+          </div>
+          <div class="action-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1.6"/>
+              <rect x="14" y="3" width="7" height="7" rx="1.6"/>
+              <rect x="3" y="14" width="7" height="7" rx="1.6"/>
+              <rect x="14" y="14" width="7" height="7" rx="1.6"/>
+            </svg>
+          </div>
+          <div class="action-title">批量租赁</div>
+          <div class="action-desc">大额优惠，多笔批量</div>
         </div>
       </div>
     </section>
@@ -426,7 +534,7 @@
     <section class="sec">
       <div class="sec-title">关于我们</div>
       <p class="about-text">
-        neee.my 是一个 TRON 能量交易平台，我们提供 TRON 能量交易服务，让 TRON 能量交易更加便捷、安全、快速。我们提供多种租赁方式，包括API、手动方式下单，秒级到账。支持自定义购买时间、数量，或由系统自动预估当前交易所需要的资源情况。可为用户量身定制自动租赁能量/带宽的策略，自动化实现补充能量/带宽。平台自建数十亿级能量池，满足客户大小额能量租赁需求。专业的技术团队维护更新，并提供24/7在线支持。
+        Neee.my 是一个 TRON 能量交易平台，我们提供 TRON 能量交易服务，让 TRON 能量交易更加便捷、安全、快速。我们提供多种租赁方式，包括API、手动方式下单，秒级到账。支持自定义购买时间、数量，或由系统自动预估当前交易所需要的资源情况。可为用户量身定制自动租赁能量/带宽的策略，自动化实现补充能量/带宽。平台自建数十亿级能量池，满足客户大小额能量租赁需求。专业的技术团队维护更新，并提供24/7在线支持。
       </p>
     </section>
 
@@ -534,7 +642,35 @@
 
     <!-- 底部 -->
     <div class="footer">
-      <div class="footer-logo">neee.my</div>
+      <div class="footer-brand">
+        <div class="mark">
+          <!-- ===== Neee.my 品牌图标（底部） ===== -->
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <defs>
+              <linearGradient id="nmb2" x1="0" y1="0" x2="40" y2="40">
+                <stop offset="0%" stop-color="#102540"/>
+                <stop offset="55%" stop-color="#0a1728"/>
+                <stop offset="100%" stop-color="#060d16"/>
+              </linearGradient>
+              <linearGradient id="nmn2" x1="12" y1="30" x2="28" y2="10">
+                <stop offset="0%" stop-color="#00e6a8"/>
+                <stop offset="100%" stop-color="#5ecbff"/>
+              </linearGradient>
+              <radialGradient id="nmglow2" cx="50%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="rgba(0,230,168,.28)"/>
+                <stop offset="100%" stop-color="rgba(0,230,168,0)"/>
+              </radialGradient>
+            </defs>
+            <rect x="0.5" y="0.5" width="39" height="39" rx="12" fill="url(#nmb2)"/>
+            <rect x="0.5" y="0.5" width="39" height="39" rx="12" fill="url(#nmglow2)"/>
+            <rect x="0.5" y="0.5" width="39" height="39" rx="12" stroke="rgba(0,230,168,.3)" stroke-width="0.9"/>
+            <path d="M12.5 29V11L27.5 29V11"
+                  stroke="url(#nmn2)" stroke-width="3.6"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="footer-logo">Neee.my</div>
+      </div>
       <p>专业 TRON 能量交易平台<br>安全 · 便捷 · 高效</p>
     </div>
 
